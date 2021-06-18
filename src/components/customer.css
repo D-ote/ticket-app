@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Spartan:wght@200;300;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Spartan', sans-serif;
+}
+
+.customerContainer {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    background-color: #245fff;
+    overflow-y: scroll;
+    background-color: rgb(246, 250, 255);
+}
+
+.customerWrapper {
+    padding: 50px;
+}
+
+.customerWrapper header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;        
+}
+
+.customerWrapper header h2 {
+    font-size: 28px;
+    align-self: center;    
+}
+
+.customerWrapper header .customerBtn {
+    background-color: white;
+    padding: 8px 12px;
+    border: 1px solid rgb(238, 232, 232);
+    border-radius: 5px;
+}
+
+.customerContent {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;  
+    border: 1px solid rgb(238, 234, 234);  
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+}
+
+.customerTable {
+    width: 100%;
+    line-height: 3;
+}
+
+thead tr {
+    text-align: left;
+}
+
+tbody tr {
+    font-size: 15px;
+}
+
+tbody tr:hover {
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+}

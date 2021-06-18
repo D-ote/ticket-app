@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Spartan:wght@200;300;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Spartan', sans-serif;
+}
+
+.boardContainer {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    background-color: #245fff;
+    overflow-y: scroll;
+    background-color: rgb(246, 250, 255);
+}
+
+.boardWrapper {
+    padding: 50px;
+}
+
+.boardWrapper header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;        
+}
+
+.boardWrapper header h2 {
+    font-size: 28px;
+    align-self: center;    
+}
+
+.boardWrapper header .boardBtn {
+    background-color: white;
+    padding: 8px 12px;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
+}
+
+.boardContent {
+    display: flex;
+    display: -webkit-box;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+    overflow-x: scroll;
+}
+
+.content {
+    background-color: white;
+    border: 1px solid rgb(223, 223, 223);
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1 46%;
+    margin-right: 15px;
+    height: fit-content;
+}
+
+.boardContent::-webkit-scrollbar {
+  display: none;
+}
+
+.content h4 {
+    padding-bottom: 20px;
+}
+
+.contentDiv {
+    padding: 15px 20px;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.contentFooter {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgb(175, 175, 175);
+    font-weight: bold;
+    cursor: pointer;
+}

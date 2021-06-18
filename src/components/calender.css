@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Spartan:wght@200;300;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Spartan', sans-serif;
+}
+
+.calenderContainer {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    background-color: #245fff;
+    overflow-y: scroll;
+    background-color: rgb(246, 250, 255);
+}
+
+.calenderWrapper {
+    padding: 50px;
+}
+
+.calenderContent header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;    
+}
+
+.calenderContent header h2 {
+    font-size: 28px;
+    align-self: center;    
+}
+
+.calenderContent header .calenderBtn {
+    background-color: white;
+    padding: 8px 12px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+}
+
+.calender {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+    background-color: white;
+    padding: 20px;
+}
+
+.calenderHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 8px auto 25px auto;
+}
+
+.calenderHeader h3 {
+    padding: 0 50px;
+    font-size: 25px;
+}
+
+.calenderIcon {
+    font-size: 25px;
+}
+
+.calenderTable {
+    padding: 30px 0;
+}
+
+.bright {
+    background-color: blue;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.tableBody td {
+    padding: 20px;
+    text-align: center;
+}
