@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Spartan:wght@200;300;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Spartan', sans-serif;
+}
+
+.supportContainer {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    background-color: #245fff;
+    overflow-y: scroll;
+    background-color: rgb(246, 250, 255);
+}
+
+.supportWrapper {
+    padding: 50px;
+}
+
+.supportWrapper header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;        
+}
+
+.supportWrapper header h2 {
+    font-size: 28px;
+    align-self: center;    
+}
+
+.supportWrapper header .supportBtn {
+    background-color: white;
+    padding: 8px 12px;
+    border: 1px solid rgb(238, 232, 232);
+    border-radius: 5px;
+}
+
+.supportContent {
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;  
+    border: 1px solid rgb(238, 234, 234);  
+}
+
+.headerList {
+    padding: 20px;
+    display: flex;
+    list-style: none;
+    border-bottom: 2px solid rgb(224, 224, 224);
+}
+
+.headerList li {
+    padding: 0 20px;
+    font-weight: bold;
+    color: rgb(155, 155, 155);
+}
+
+.headerList li:hover {
+    cursor: pointer;
+}
+
+.headerList li:first-child {
+    color: black;
+}
+
+.supportTable {
+    padding: 20px 40px;
+    width: 100%;
+    line-height: 3;
+    text-align: left;
+}
+
+.supportCheckbox {
+    width: 18px;
+    height: 18px;
+}
+
+.open {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    padding: 0 8px;
+    width: 65px;
+    height: 20px;
+}
+
+.issue {
+    background-color: lemonchiffon;
+    border-radius: 10px;
+    padding: 0 8px;
+    width: 65px;
+    height: 20px;
+}
+
+.issue span, .new span, .open span {
+    position: relative;
+    bottom: 11px;
+}
+
+.new {
+    background-color: rgb(189, 255, 211);
+    border-radius: 10px;
+    padding: 0 8px;
+    width: 65px;
+    height: 20px;
+}
+
+thead tr {
+    text-align: left;
+}
+
+tbody tr {
+    font-size: 15px;
+    border-bottom: 1px solid red;
+}
+
+tbody tr:hover {
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+}

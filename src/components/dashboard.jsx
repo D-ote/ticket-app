@@ -128,8 +128,8 @@ class Dashboard extends Component {
                 <form action="#" className="scheduleForm">
                   {this.state.schedule.map((item, index) => (
                     <div className="formDiv">
-                      <p className={item.emptySchedule == true  &&  "noTime"} >{item.time}</p>
-                      <div className={item.emptySchedule == true ? "noSchedule" : (item.isActive == true ? "scheduleDescription colorDiv" : "scheduleDescription") } >
+                      <p className={item.emptySchedule === true  &&  "noTime"} >{item.time}</p>
+                      <div className={item.emptySchedule === true ? "noSchedule" : (item.isActive === true ? "scheduleDescription colorDiv" : "scheduleDescription") } >
                           {item.schedule}
                       </div>
                     </div>

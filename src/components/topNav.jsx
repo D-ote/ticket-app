@@ -5,12 +5,15 @@ import { GrNotification } from "react-icons/gr";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { GoThreeBars, GoPrimitiveDot } from "react-icons/go";
 import headShot from "../images/headShot.jpg";
-import { icon } from "@fortawesome/fontawesome-svg-core";
 
 class Topnav extends Component {
   constructor(props) {
     super(props);
+    this.datesDropDownFilter = createRef();
+    this.activityDropDown = createRef();
+
     this.firstNavDropdown = createRef();
+    this.firstNavDropdownToggler = createRef();
     this.secondNavdropdown = createRef();
     this.thirdNavDropdown = createRef();
 
@@ -56,30 +59,44 @@ class Topnav extends Component {
         },
       ],
     };
+    this.state = {
+      updatesIsDropped: false,
+      notificationsIsDropped: false,
+    };
   }
 
   componentDidMount() {
     document.onclick = (e) => {
-      const icon = document.getElementById("firstNavDropdown");
-      if (e.target.id !== "firstIcon") {
-        icon.setAttribute("class", "firstNavDropdown");
-      }
-
-      const notificationIcon = document.getElementById("secondNavDropdown");
-      if (e.target.id !== "secondIcon") {
-        notificationIcon.setAttribute("class", "secondNavDropdown");
-      }
-
-      const thirdNavDropdown = document.getElementById("thirdNavDropdown");
-      if (e.target.id !== "thirdNavDropdown") {
-        thirdNavDropdown.setAttribute("class", "thirdNavDropdown");
-      }
+      let firstNavDropdownToggler =
+        this.firstNavDropdownToggler.current.children[0];
+      if (
+        e.target !== this.firstNavDropdown.current &&
+        e.target !== firstNavDropdownToggler
+      )
+        this.setState({ updatesIsDropped: false });
+      //   const icon = document.getElementById("firstNavDropdown");
+      //   if (e.target.id !== "firstIcon") {
+      //     icon.setAttribute("class", "firstNavDropdown");
+      //   }
+      //   const notificationIcon = document.getElementById("secondNavDropdown");
+      //   if (e.target.id !== "secondIcon") {
+      //     notificationIcon.setAttribute("class", "secondNavDropdown");
+      //   }
+      //   const thirdNavDropdown = document.getElementById("thirdNavDropdown");
+      //   if (e.target.id !== "thirdNavDropdown") {
+      //     thirdNavDropdown.setAttribute("class", "thirdNavDropdown");
+      //   }
     };
   }
 
+  toggleUpdatesDropDown = () => {
+    let state = this.state.updatesIsDropped;
+    this.setState({ updatesIsDropped: !state });
+  };
+
   toggleTopnavDropdown = () => {
     const thirdNavDropdown = this.thirdNavDropdown.current;
-    const topnavDownArrow = document.getElementById("topnavDownArrow");
+    // const topnavDownArrow = document.getElementById("topnavDownArrow");
 
     // topnavDownArrow.classList.toggle('turnUp');
 
@@ -102,18 +119,20 @@ class Topnav extends Component {
       return icon.setAttribute("class", "firstNavDropdown hideBtnDropdown");
     }
 
-    return icon.setAttribute("class", "firstNavDropdown");
+    // return icon.setAttribute("class", "firstNavDropdown");
   };
 
   handlesecondnavtoggle = () => {
     const notificationIcon = this.secondNavdropdown.current;
 
     if (notificationIcon.className === "secondNavDropdown") {
-
-        return notificationIcon.setAttribute("class", "secondNavDropdown hideBtnDropdown")
+      return notificationIcon.setAttribute(
+        "class",
+        "secondNavDropdown hideBtnDropdown"
+      );
     }
 
-    return notificationIcon.setAttribute("class", "secondNavDropdown")
+    return notificationIcon.setAttribute("class", "secondNavDropdown");
   };
 
   render() {
@@ -135,11 +154,12 @@ class Topnav extends Component {
                 Get Template
               </button>
             </li>
-            <li>
+            <li ref={this.firstNavDropdownToggler}>
               <AiOutlineReload
                 className="topNavIcon"
                 id="firstIcon"
-                onClick={() => this.handlenavIconToggle()}
+                // onClick={() => this.handlenavIconToggle()}
+                onClick={() => this.toggleUpdatesDropDown()}
               />
             </li>
             <li>
@@ -169,13 +189,18 @@ class Topnav extends Component {
           ref={this.firstNavDropdown}
           className="firstNavDropdown"
           id="firstNavDropdown"
+          style={
+            this.state.updatesIsDropped
+              ? { display: "block" }
+              : { display: "none" }
+          }
         >
           {this.dropdown.firstdropdown.map((dropdown) => (
             <div className="first" key={dropdown.id}>
               <div className="topnavSpan">
                 <GoPrimitiveDot
                   className={
-                    dropdown.isActive == true
+                    dropdown.isActive === true
                       ? "dropdownIcon"
                       : "dropdownIcon inactiveDropdownIcon"
                   }
@@ -198,7 +223,7 @@ class Topnav extends Component {
               <div className="topnavSpan">
                 <GoPrimitiveDot
                   className={
-                    dropdown.isActive == true
+                    dropdown.isActive === true
                       ? "dropdownIcon"
                       : "dropdownIcon inactiveDropdownIcon"
                   }

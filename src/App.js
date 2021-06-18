@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard";
 import Sidebar from "./components/sidebar";
 import Tasks from "./components/tasks";
@@ -7,6 +7,7 @@ import Emails from "./components/emails";
 import Calender from "./components/calender";
 import Board from "./components/board";
 import Customer from "./components/customer";
+import Support from "./components/support";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/calender" exact component ={Calender} />
         <Route path="/board" exact component={Board} />
         <Route path="/customer" exact component={Customer} />
+        <Route path="/support" exact component={Support} />
       </div>
     </Router>
   );

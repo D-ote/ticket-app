@@ -45,7 +45,7 @@ class Customer extends Component {
               <table className="customerTable">
                   <thead>
                       <tr>
-                          <th><input type="checkbox" name="customer" className="checkbox" /></th>
+                          <th><input type="checkbox" name="customer" className="customerCheckbox" /></th>
                           <th>ID</th>
                           <th>Name</th>
                           <th>Email</th>

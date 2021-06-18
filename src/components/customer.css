@@ -52,7 +52,7 @@
     border: 1px solid rgb(238, 234, 234);  
 }
 
-.checkbox {
+.customerCheckbox {
     width: 18px;
     height: 18px;
 }
@@ -68,9 +68,14 @@ thead tr {
 
 tbody tr {
     font-size: 15px;
+    border-bottom: 1px solid red;
 }
 
 tbody tr:hover {
     cursor: pointer;
     background-color: rgb(245, 245, 245);
+}
+
+@media screen and (max-width: 760px) {
+        
 }

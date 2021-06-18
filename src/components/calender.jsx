@@ -5,10 +5,8 @@ import Topnav from './topNav';
 import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
 
 class Calender extends Component {
-    constructor(props) {
-        super(props)
 
-        this.calender = [
+        calender = [
             { id: 1, day: "Sun", date: "31", tag: "none", isFeb: false },
             { id: 2, day: "Mon", date: "1", tag: "dull", isFeb: true },
             { id: 3, day: "Tue", date: "2", tag: "none", isFeb: true },
@@ -44,7 +42,7 @@ class Calender extends Component {
             { id: 33, day: "Tue", date: "4", tag: "none", isFeb:false },
             { id: 34, day: "Tue", date: "5", tag: "none", isFeb:false },
         ]
-    }
+    
     state = {  }
     render() { 
         return ( 
@@ -62,7 +60,7 @@ class Calender extends Component {
                             </div>
                             <table className="calenderTable">
                                 { this.calender.map((cal) => {
-                                    <div key={cal.id}>
+                                    return <div key={cal.id}>
                                     <tr className="tableHead">
                                         <th> {cal.day} </th>
                                     </tr>

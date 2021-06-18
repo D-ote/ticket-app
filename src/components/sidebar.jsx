@@ -67,7 +67,7 @@ class Sidebar extends Component {
                 return (
                   <li>
                     <Link
-                      className={index == 4 || index == 7 ? "borderLine" : ""}
+                      className={index === 4 || index === 7 ? "borderLine" : ""}
                       to={sidebar.link}
                     >
                       <div className={this.state.showText ? "" : "noPadding"}>
