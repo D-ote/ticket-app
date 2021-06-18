@@ -6,7 +6,7 @@ class Footer extends Component {
         return ( 
             <footer id="footer">
                 <div className="footerText">
-                    <p> &#38; Dawn All Rights Reserved・ Built by <a href="#">Dooter Ior</a> ・ Powered by <a href="#">Webflow</a> ・ Template <a href="#">License</a></p>
+                    <p> &#38; Dawn All Rights Reserved・ Built by <div>Dooter Ior</div> ・ Powered by <div>Webflow</div> ・ Template <div>License</div></p>
                 </div>
             </footer>
              );

@@ -4,11 +4,6 @@ import Footer from "./footer";
 import Topnav from "./topNav";
 
 class Customer extends Component {
-    constructor(props) {
-        super(props)
-
-    }
-
     state = {
       customerDb : [
           { id: 1, number:"#68", name: "Yellow", email:"yellowrain@gmail.com", phone: "+234 813 008 213" },
