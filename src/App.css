@@ -121,19 +121,6 @@
   padding-top: 20px;
 }
 
-.hiddenNavList ul li:hover, .hiddenToggle:hover, .hiddenUlFooter:hover {
-  cursor: pointer;
-  color: black;
-}
-
-.hiddenUlFooter div {
-  text-align: center;
-  padding: 20px;
-  font-size: 20px; 
-  margin-top: 262px;
-  border-top: 1px solid rgb(196, 191, 191);
-}
-
 .dashboardContainer {
   display: flex;
   flex-direction: column;
@@ -720,7 +707,7 @@
 }
 
 .inactiveDropdownIcon {
-  color: transparent !important;
+  color: #979393 !important;
 }
 
 .textHeader {

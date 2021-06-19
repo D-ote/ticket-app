@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import { IoIosArrowDown, IoIosAdd } from "react-icons/io";
 import { GrFormAdd, GrCheckmark } from "react-icons/gr";
 import { GrNotes } from "react-icons/gr";
@@ -10,6 +10,14 @@ import Topnav from "./topNav";
 import Footer from "./footer";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.scheduleDropdownToggler = createRef();
+    this.scheduleDropdown = createRef();
+    this.popUpToggler = createRef();
+    this.popUpDropdown = createRef();
+  }
+
   state = {
     cards: [
       { id: 1, title: "New Orders", number: 4 },
@@ -45,53 +53,104 @@ class Dashboard extends Component {
       },
       { id: 6, title: "Recalculate MRR", description: "", tag: "" },
     ],
-    schedule: [
-      { id: 1, time: "9AM", schedule: "Task Review", emptySchedule: false, isActive: true },
-      { id: 2, time: "10AM", schedule: "Prepare Orders", emptySchedule: false, isActive: false },
-      { id: 3, time: "11AM", schedule: "Update Website", emptySchedule: false, isActive: false },
-      { id: 4, time: "12PM", schedule: "Skype with Jason", emptySchedule: false, isActive: false },
-      { id: 5, time: "1PM", schedule: "", emptySchedule: true, isActive: false },
-      { id: 6, time: "2PM", schedule: "Task Review", emptySchedule: false, isActive: false },
-      { id: 7, time: "3PM", schedule: "", emptySchedule: true, isActive: false },
-      { id: 8, time: "4PM", schedule: "Send Orders", emptySchedule: false, isActive: false },
-    ],
-    emails: [
-      {
-        id: 1,
-        header: "Audio Hunt",
-        time: "1:34am",
-        body: "New music is out!",
-        bodyDescription: "The playlist made just for you, every Friday",
-      },
-      {
-        id: 2,
-        header: "Domains R Us",
-        time: "12:52pm",
-        body: "Your domain will expire soon",
-        bodyDescription: "Your domain “nicehats.com” is set to expire",
-      },
-      {
-        id: 3,
-        header: "Google Accounts",
-        time: "9:39am",
-        body: "Security alert",
-        bodyDescription: "A new device from New York has signed in",
-      },
-    ],
+    scheduleDayIsDropped: false,
+    popUpIsDropped: false,
   };
 
-  handlePopUp = () => {
-    const popUpList = document.getElementById("popUpList");
-    const pagePlus = document.querySelector(".pagePlus");
+  schedule = [
+    {
+      id: 1,
+      time: "9AM",
+      schedule: "Task Review",
+      emptySchedule: false,
+      isActive: true,
+    },
+    {
+      id: 2,
+      time: "10AM",
+      schedule: "Prepare Orders",
+      emptySchedule: false,
+      isActive: false,
+    },
+    {
+      id: 3,
+      time: "11AM",
+      schedule: "Update Website",
+      emptySchedule: false,
+      isActive: false,
+    },
+    {
+      id: 4,
+      time: "12PM",
+      schedule: "Skype with Jason",
+      emptySchedule: false,
+      isActive: false,
+    },
+    { id: 5, time: "1PM", schedule: "", emptySchedule: true, isActive: false },
+    {
+      id: 6,
+      time: "2PM",
+      schedule: "Task Review",
+      emptySchedule: false,
+      isActive: false,
+    },
+    { id: 7, time: "3PM", schedule: "", emptySchedule: true, isActive: false },
+    {
+      id: 8,
+      time: "4PM",
+      schedule: "Send Orders",
+      emptySchedule: false,
+      isActive: false,
+    },
+  ];
+  emails = [
+    {
+      id: 1,
+      header: "Audio Hunt",
+      time: "1:34am",
+      body: "New music is out!",
+      bodyDescription: "The playlist made just for you, every Friday",
+    },
+    {
+      id: 2,
+      header: "Domains R Us",
+      time: "12:52pm",
+      body: "Your domain will expire soon",
+      bodyDescription: "Your domain “nicehats.com” is set to expire",
+    },
+    {
+      id: 3,
+      header: "Google Accounts",
+      time: "9:39am",
+      body: "Security alert",
+      bodyDescription: "A new device from New York has signed in",
+    },
+  ];
 
-    pagePlus.classList.toggle("pageClose");
-    popUpList.classList.toggle("popUp");
+  // componentDidMount() {
+  //   document.onclick = (e) => {
+  //     if (
+  //       e.target !== this.scheduleDropdown.current &&
+  //       e.target !== this.scheduleDropdownToggler.current.children[0]
+  //     )
+  //       this.setState({ scheduleDayIsDropped: false });
+
+  //     if (
+  //       e.target !== this.popUpToggler.current.children[0] &&
+  //       e.target !== this.popUpDropdown.current
+  //     )
+  //       this.setState({ popUpIsDropped: false });
+  //   };
+  // }
+
+  handlePopUp = () => {
+    let state = this.state.popUpIsDropped;
+    this.setState({ popUpIsDropped: !state });
   };
 
   handleDropdownToggle = () => {
-    const dropDown = document.querySelector(".btnDropdown");
-
-    dropDown.classList.toggle("hideBtnDropdown");
+    let state = this.state.scheduleDayIsDropped;
+    this.setState({ scheduleDayIsDropped: !state });
   };
 
   render() {
@@ -117,20 +176,41 @@ class Dashboard extends Component {
               <div className="schedule">
                 <div className="scheduleHeader">
                   <h3>Schedule</h3>
-                  <button onClick={() => this.handleDropdownToggle()}>
+                  <button
+                    onClick={() => this.handleDropdownToggle()}
+                    ref={this.scheduleDropdownToggler}
+                  >
                     Today <IoIosArrowDown className="icon" />{" "}
                   </button>
                 </div>
-                <ul className="btnDropdown">
+                <ul
+                  className="btnDropdown"
+                  ref={this.scheduleDropdown}
+                  style={
+                    this.state.scheduleDayIsDropped
+                      ? { display: "block" }
+                      : { display: "none" }
+                  }
+                >
                   <li>Last Week</li>
                   <li>This Month</li>
                 </ul>
                 <form action="#" className="scheduleForm">
-                  {this.state.schedule.map((item, index) => (
+                  {this.schedule.map((item, index) => (
                     <div className="formDiv">
-                      <p className={item.emptySchedule === true  &&  "noTime"} >{item.time}</p>
-                      <div className={item.emptySchedule === true ? "noSchedule" : (item.isActive === true ? "scheduleDescription colorDiv" : "scheduleDescription") } >
-                          {item.schedule}
+                      <p className={item.emptySchedule === true && "noTime"}>
+                        {item.time}
+                      </p>
+                      <div
+                        className={
+                          item.emptySchedule === true
+                            ? "noSchedule"
+                            : item.isActive === true
+                            ? "scheduleDescription colorDiv"
+                            : "scheduleDescription"
+                        }
+                      >
+                        {item.schedule}
                       </div>
                     </div>
                   ))}
@@ -170,14 +250,20 @@ class Dashboard extends Component {
                   <button>See All</button>
                 </div>
                 <div className="emailBody">
-                  {this.state.emails.map((email, idx) => (
+                  {this.emails.map((email, idx) => (
                     <div key={email.id}>
                       <div className="emailBodyHeader">
                         <GoPrimitiveDot className="emailIcon" />
                         <div className="textHeader">{email.header}</div>
                         <div className="time">{email.time}</div>
                       </div>
-                      <div className={this.state.emails.length - 1 === idx ? "emailBodyText emailBodyTextWithoutBorder" : "emailBodyText emailBodyTextWithBorder"}>
+                      <div
+                        className={
+                          this.emails.length - 1 === idx
+                            ? "emailBodyText emailBodyTextWithoutBorder"
+                            : "emailBodyText emailBodyTextWithBorder"
+                        }
+                      >
                         <p className="first">{email.body}</p>
                         <p className="second">{email.bodyDescription}</p>
                       </div>
@@ -197,7 +283,16 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <ul className="popUpList" id="popUpList">
+            <ul
+              className="popUpList"
+              id="popUpList"
+              style={
+                this.state.popUpIsDropped
+                  ? { display: "block" }
+                  : { display: "none" }
+              }
+              ref={this.popUpDropdown}
+            >
               <li>
                 <GrNotes className="popUpIcon" /> New Task
               </li>
@@ -208,10 +303,17 @@ class Dashboard extends Component {
                 <AiOutlineCalendar className="popUpIcon" /> New Event
               </li>
             </ul>
-            <IoIosAdd className="pagePlus" onClick={() => this.handlePopUp()} />
+            <div 
+              ref={this.popUpToggler}>
+            <IoIosAdd
+              className={
+                this.state.popUpIsDropped ? "pagePlus pageClose" : "pagePlus"
+              }
+              onClick={() => this.handlePopUp()}
+            /> </div>
           </div>
         </div>
-            <Footer />
+        <Footer />
       </div>
     );
   }

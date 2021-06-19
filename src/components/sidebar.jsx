@@ -65,7 +65,7 @@ class Sidebar extends Component {
             <ul>
               {this.sidebarList.map((sidebar, index) => {
                 return (
-                  <li>
+                  <li key={sidebar.id}>
                     <Link
                       className={index === 4 || index === 7 ? "borderLine" : ""}
                       to={sidebar.link}

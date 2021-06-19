@@ -15,7 +15,9 @@ class Topnav extends Component {
     this.firstNavDropdown = createRef();
     this.firstNavDropdownToggler = createRef();
     this.secondNavdropdown = createRef();
+    this.secondNavdropdownToggler = createRef();
     this.thirdNavDropdown = createRef();
+    this.thirdNavdropdownToggler = createRef();
 
     this.dropdown = {
       firstdropdown: [
@@ -58,10 +60,22 @@ class Topnav extends Component {
           isActive: false,
         },
       ],
+      thirddropdown: [
+        { id: 1, class: "none", list: "My Profile" },
+        { id: 2, class: "borderline", list: "Settings" },
+        { id: 3, class: "none", list: "Help Center" },
+        { id: 4, class: "none", list: "Report an Issue" },
+        { id: 5, class: "none", list: "Terms Conditions" },
+        { id: 6, class: "none", list: "Privacy Policy" },
+        { id: 7, class: "borderline", list: "Licences" },
+        { id: 8, class: "none", list: "Log Out" },
+      ],
     };
+
     this.state = {
       updatesIsDropped: false,
       notificationsIsDropped: false,
+      topnavIsDropped: false,
     };
   }
 
@@ -74,18 +88,21 @@ class Topnav extends Component {
         e.target !== firstNavDropdownToggler
       )
         this.setState({ updatesIsDropped: false });
-      //   const icon = document.getElementById("firstNavDropdown");
-      //   if (e.target.id !== "firstIcon") {
-      //     icon.setAttribute("class", "firstNavDropdown");
-      //   }
-      //   const notificationIcon = document.getElementById("secondNavDropdown");
-      //   if (e.target.id !== "secondIcon") {
-      //     notificationIcon.setAttribute("class", "secondNavDropdown");
-      //   }
-      //   const thirdNavDropdown = document.getElementById("thirdNavDropdown");
-      //   if (e.target.id !== "thirdNavDropdown") {
-      //     thirdNavDropdown.setAttribute("class", "thirdNavDropdown");
-      //   }
+
+      let secondNavdropdownToggler =
+        this.secondNavdropdownToggler.current.children[0];
+      if (
+        e.target !== this.secondNavdropdown.current &&
+        e.target !== secondNavdropdownToggler
+      )
+        this.setState({ notificationsIsDropped: false });
+
+      let topnavToggler = this.thirdNavdropdownToggler.current.children[0];
+      if (
+        e.target !== this.thirdNavDropdown.current &&
+        e.target !== topnavToggler
+      )
+        this.setState({ topnavIsDropped: false });
     };
   }
 
@@ -94,45 +111,14 @@ class Topnav extends Component {
     this.setState({ updatesIsDropped: !state });
   };
 
+  toggleNotificationsDropdown = () => {
+    let state = this.state.notificationsIsDropped;
+    this.setState({ notificationsIsDropped: !state });
+  };
+
   toggleTopnavDropdown = () => {
-    const thirdNavDropdown = this.thirdNavDropdown.current;
-    // const topnavDownArrow = document.getElementById("topnavDownArrow");
-
-    // topnavDownArrow.classList.toggle('turnUp');
-
-    if (thirdNavDropdown.className === "thirdNavDropdown") {
-      return thirdNavDropdown.setAttribute(
-        "class",
-        "thirdNavDropdown hideBtnDropdown"
-      );
-    }
-
-    return thirdNavDropdown.setAttribute("class", "thirdNavDropdown");
-
-    // navDropdown.classList.toggle('hideBtnDropdown');
-  };
-
-  handlenavIconToggle = () => {
-    const icon = this.firstNavDropdown.current;
-
-    if (icon.className === "firstNavDropdown") {
-      return icon.setAttribute("class", "firstNavDropdown hideBtnDropdown");
-    }
-
-    // return icon.setAttribute("class", "firstNavDropdown");
-  };
-
-  handlesecondnavtoggle = () => {
-    const notificationIcon = this.secondNavdropdown.current;
-
-    if (notificationIcon.className === "secondNavDropdown") {
-      return notificationIcon.setAttribute(
-        "class",
-        "secondNavDropdown hideBtnDropdown"
-      );
-    }
-
-    return notificationIcon.setAttribute("class", "secondNavDropdown");
+    let state = this.state.topnavIsDropped;
+    this.setState({ topnavIsDropped: !state });
   };
 
   render() {
@@ -158,15 +144,14 @@ class Topnav extends Component {
               <AiOutlineReload
                 className="topNavIcon"
                 id="firstIcon"
-                // onClick={() => this.handlenavIconToggle()}
                 onClick={() => this.toggleUpdatesDropDown()}
               />
             </li>
-            <li>
+            <li ref={this.secondNavdropdownToggler}>
               <GrNotification
                 className="topNavIcon"
                 id="secondIcon"
-                onClick={() => this.handlesecondnavtoggle()}
+                onClick={() => this.toggleNotificationsDropdown()}
               />
             </li>
             <li>
@@ -174,14 +159,12 @@ class Topnav extends Component {
                 <img src={headShot} alt="headShot" />
               </div>
             </li>
-            <li>
-              <span>
-                <RiArrowDownSLine
-                  className="topnavDownArrow"
-                  id="topnavDownArrow"
-                  onClick={() => this.toggleTopnavDropdown()}
-                />
-              </span>
+            <li ref={this.thirdNavdropdownToggler}>
+              <RiArrowDownSLine
+                className="topnavDownArrow"
+                id="topnavDownArrow"
+                onClick={() => this.toggleTopnavDropdown()}
+              />
             </li>
           </ul>
         </nav>
@@ -217,6 +200,11 @@ class Topnav extends Component {
           ref={this.secondNavdropdown}
           className="secondNavDropdown"
           id="secondNavDropdown"
+          style={
+            this.state.notificationsIsDropped
+              ? { display: "block" }
+              : { display: "none" }
+          }
         >
           {this.dropdown.seconddropdown.map((dropdown) => (
             <div className="first" key={dropdown.id}>
@@ -236,15 +224,24 @@ class Topnav extends Component {
           <button className="dropdownBtn">See all updates</button>
         </div>
 
-        <ul className="thirdNavDropdown" id="thirdNavDropdown">
-          <li>My Profile</li>
-          <li className="borderLine">Settings</li>
-          <li>Help Center</li>
-          <li>Report an Issue</li>
-          <li>Terms Conditions</li>
-          <li>Privacy Policy</li>
-          <li className="borderLine">Licenses</li>
-          <li>Log Out</li>
+        <ul
+          className="thirdNavDropdown"
+          id="thirdNavDropdown"
+          ref={this.thirdNavDropdown}
+          style={
+            this.state.topnavIsDropped
+              ? { display: "block" }
+              : { display: "none" }
+          }
+        >
+          {this.dropdown.thirddropdown.map((list) => (
+            <li
+              key={list.id}
+              className={list.class === "borderline" && "borderline"}
+            >
+              {list.list}
+            </li>
+          ))}
         </ul>
       </div>
     );
