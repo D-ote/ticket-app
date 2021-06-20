@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Spartan:wght@200;300;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Spartan', sans-serif;
-}
-
 .supportContainer {
     display: flex;
     flex-direction: column;
@@ -52,14 +43,14 @@
 }
 
 .headerList {
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     display: flex;
     list-style: none;
     border-bottom: 2px solid rgb(224, 224, 224);
 }
 
 .headerList li {
-    padding: 0 20px;
+    padding: 0 20px 12px 20px;
     font-weight: bold;
     color: rgb(155, 155, 155);
 }
@@ -100,7 +91,7 @@
     height: 20px;
 }
 
-.issue span, .new span, .open span {
+.issue span, .new span, .open span, .closed span {
     position: relative;
     bottom: 11px;
 }
@@ -112,6 +103,13 @@
     width: 65px;
     height: 20px;
 }
+
+.closed {
+    background-color: rgb(255, 214, 216);
+    border-radius: 10px;
+    padding: 0 8px;
+    width: 65px;
+    height: 20px;}
 
 thead tr {
     text-align: left;

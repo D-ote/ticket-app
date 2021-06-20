@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Spartan:wght@200;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Spartan', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .container {
@@ -77,7 +77,7 @@
   background-color: rgb(246, 250, 255);
 }
 
-.navList ul li:first-child {
+.sidebarActive {
   color: black;
   font-weight: bold;
   background-color: rgb(246, 250, 255);
@@ -425,7 +425,7 @@
   margin-right: 25px;
 }
 
-.scheduleHeader, .scheduleTask {
+.scheduleHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -434,13 +434,24 @@
   font-size: 12px;
 }
 
+.scheduleTask {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  padding: 14px 20px;
+  font-size: 12px;
+}
+
 .scheduleHeader button {
   padding: 8px;
   border-radius: 5px;
   border: 1px solid rgb(221, 221, 221);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100px;
+  cursor: pointer;
 }
 
 .scheduleHeader h3, .scheduleTask h3 {
@@ -469,6 +480,7 @@
 
 .scheduleHeader button .icon {
   color: rgb(134, 134, 134);
+  display: block;
 }
 
 .scheduleHeader button:hover {
@@ -788,7 +800,7 @@ footer a {
   border-radius: 50%;
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 40px;
   transition: all 0.3s ease;
 }
 
@@ -798,7 +810,7 @@ footer a {
 
 .pagePlus:hover {
   cursor: pointer;
-  background-color: rgb(125, 131, 136);
+  background-color: rgb(228, 228, 228);
 }
 
 .popUpList {
@@ -810,7 +822,7 @@ footer a {
   width: 140px;
   line-height: 2;
   position: fixed;
-  right: 20px;
+  right: 40px;
   bottom: 80px;
   border: 1px solid rgb(231, 231, 231);
 }
@@ -847,25 +859,22 @@ footer a {
 }
 
 .taskbarContent ul li {
-  padding: 9px 20px;
+  padding: 10px 20px;
 }
 
 .barContent {
   padding: 20px;
 }
 
-.all {
-  border-bottom: 3px solid transparent;
+.active {
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
-}
-
-.taskBorder {
   border-bottom: 3px solid rgb(71, 103, 245);
 }
 
-.all:hover, .urgent:hover {
+.taskBorder {
   cursor: pointer;
-  /* border-bottom: 3px solid rgb(193, 204, 255); */
+  border-bottom: 3px solid transparent;
 }
 
 

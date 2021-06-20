@@ -21,6 +21,7 @@ class Sidebar extends Component {
     super(props);
     this.state = {
       showText: true,
+      active: "dashboard"
     };
     this.sidebarList = [
       { id: 1, link: "/", icon: AiOutlineHome, text: "Dashboard" },
@@ -34,7 +35,7 @@ class Sidebar extends Component {
       { id: 9, link: "/help", icon: AiOutlineQuestionCircle, text: "Help & Feedback" }
     ];
   }
-
+ 
   render() {
     return (
       <div>

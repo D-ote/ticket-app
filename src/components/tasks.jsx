@@ -4,10 +4,13 @@ import { TiPencil } from "react-icons/ti";
 import { GrCheckboxSelected } from "react-icons/gr";
 import { FiArchive } from "react-icons/fi";
 import Footer from "./footer";
+import { createRef } from "react/cjs/react.development";
 
 class Tasks extends Component {
   constructor(props) {
     super(props);
+
+    this.taskEntry = createRef();
 
     this.originalTaskbarContent = [
       {
@@ -45,6 +48,8 @@ class Tasks extends Component {
 
     this.state = {
       taskbarContent: this.originalTaskbarContent,
+      border: "all",
+      checked: false,
     };
 
     this.taskSticker = [
@@ -58,12 +63,17 @@ class Tasks extends Component {
     const urgentTasks = this.originalTaskbarContent.filter(
       (task) => task.tag === "Urgent"
     );
-    this.setState({ taskbarContent: urgentTasks });
+    this.setState({ taskbarContent: urgentTasks, border: "urgent" });
   };
 
   handleAllTasks = () => {
-    this.setState({ taskbarContent: this.originalTaskbarContent });
+    this.setState({ taskbarContent: this.originalTaskbarContent, border: "all" });
   };
+
+  handleCheckboxSelection = () => {
+    const checked = this.taskEntry.current;
+    console.log(checked)
+  }
 
   render() {
     return (
@@ -78,17 +88,13 @@ class Tasks extends Component {
               <div className="taskbarContent">
                 <ul className="taskbarHeader">
                   <li
-                    className={
-                      this.state.taskbarContent ? "all" : "all taskBorder"
-                    }
+                    className= {this.state.border === "all" ? "active" : "taskBorder" }
                     onClick={() => this.handleAllTasks()}
                   >
                     All
                   </li>
                   <li
-                    className={
-                      this.state.taskbarContent ? "urgent" : "urgent taskBorder"
-                    }
+                    className={this.state.border === "urgent" ? "active" : "taskBorder"}
                     onClick={() => this.handleUrgentTasks()}
                   >
                     Urgent
@@ -96,10 +102,10 @@ class Tasks extends Component {
                 </ul>
                 <form action="#" className="barContent">
                   {this.state.taskbarContent.map((task, idx) => (
-                    <div className="tasksDiv" key={task.id}>
+                    <div className="tasksDiv" key={task.id} ref={this.taskEntry}>
                       <input
                         type="checkbox"
-                        className="taskInput"
+                        className="taskInput" onChange={(e) => this.handleCheckboxSelection()}
                         name={"task" + idx}
                       />
                       <div className="text">

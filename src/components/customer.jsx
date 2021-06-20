@@ -49,7 +49,7 @@ class Customer extends Component {
                   </thead>
                   <tbody>
                       { this.state.customerDb.map((pick) => {
-                      return <tr key={pick.id} className="bodyRow">
+                      return <tr key={pick.id} className="bodyRow" style={{}}>
                           <td><input type="checkbox" name="customer" className="checkbox" /></td>
                           <td>{pick.number}</td>
                           <td>{pick.name}</td>
