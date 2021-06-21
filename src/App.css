@@ -490,6 +490,7 @@
 
 .scheduleTask .icon {
   font-size: 25px;
+  display: block;
 }
 
 .task form {

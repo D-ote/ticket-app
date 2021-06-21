@@ -180,7 +180,7 @@ class Dashboard extends Component {
                     onClick={() => this.handleDropdownToggle()}
                     ref={this.scheduleDropdownToggler}
                   >
-                    Today <IoIosArrowDown className="icon" />{" "}
+                    Today <IoIosArrowDown className="icon" />
                   </button>
                 </div>
                 <ul
