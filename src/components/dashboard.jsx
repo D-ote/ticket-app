@@ -127,21 +127,21 @@ class Dashboard extends Component {
     },
   ];
 
-  // componentDidMount() {
-  //   document.onclick = (e) => {
-  //     if (
-  //       e.target !== this.scheduleDropdown.current &&
-  //       e.target !== this.scheduleDropdownToggler.current.children[0]
-  //     )
-  //       this.setState({ scheduleDayIsDropped: false });
+  componentDidMount() {
+    document.onclick = (e) => {
+      if (
+        e.target !== this.scheduleDropdown.current &&
+        e.target !== this.scheduleDropdownToggler.current.children[0]
+      )
+        this.setState({ scheduleDayIsDropped: false });
 
-  //     if (
-  //       e.target !== this.popUpToggler.current.children[0] &&
-  //       e.target !== this.popUpDropdown.current
-  //     )
-  //       this.setState({ popUpIsDropped: false });
-  //   };
-  // }
+      if (
+        e.target !== this.popUpToggler.current.children[0] &&
+        e.target !== this.popUpDropdown.current
+      )
+        this.setState({ popUpIsDropped: false });
+    };
+  }
 
   handlePopUp = () => {
     let state = this.state.popUpIsDropped;
