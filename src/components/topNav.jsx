@@ -90,7 +90,7 @@ class Topnav extends Component {
         this.setState({ updatesIsDropped: false });
 
       let secondNavdropdownToggler =
-        this.secondNavdropdownToggler.current;
+        this.secondNavdropdownToggler.current.children[0];
       if (
         e.target !== this.secondNavdropdown.current &&
         e.target !== secondNavdropdownToggler
