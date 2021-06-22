@@ -51,16 +51,16 @@
 
 .headerList li {
     padding: 0 20px 12px 20px;
-    font-weight: bold;
     color: rgb(155, 155, 155);
+}
+
+.fontWeight {
+    font-weight: 600;
+    color: black !important;
 }
 
 .headerList li:hover {
     cursor: pointer;
-}
-
-.headerList li:first-child {
-    color: black;
 }
 
 .supportTable {

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Footer from "./footer";
 import Topnav from "./topNav";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import PageHeader from "./pageHeader";
 
 class Calender extends Component {
   calender = [
@@ -50,10 +51,7 @@ class Calender extends Component {
         <Topnav />
         <div className="calenderWrapper">
           <div className="calenderContent">
-            <header>
-              <h2>Calender</h2>
-              <button className="calenderBtn">Add New Event</button>
-            </header>
+            <PageHeader name="Calender" className="calenderBtn" buttonName="Add New Event" />
             <div className="calender">
               <div className="calenderHeader">
                 <BsChevronLeft className="calenderIcon" />{" "}

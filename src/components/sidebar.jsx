@@ -19,10 +19,6 @@ import { Link } from "react-router-dom";
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showText: true,
-      active: "dashboard"
-    };
     this.sidebarList = [
       { id: 1, link: "/", icon: AiOutlineHome, text: "Dashboard" },
       { id: 2, link: "/task", icon: GrNotes, text: "Task" },
@@ -35,6 +31,11 @@ class Sidebar extends Component {
       { id: 9, link: "/help", icon: AiOutlineQuestionCircle, text: "Help & Feedback" }
     ];
   }
+  
+  state = {
+    showText: true,
+    active: true,
+  };
  
   render() {
     return (
@@ -73,7 +74,7 @@ class Sidebar extends Component {
                     >
                       <div className={this.state.showText ? "" : "noPadding"}>
                         {<sidebar.icon />}
-                      </div>{" "}
+                      </div>
                       {this.state.showText ? <span>{sidebar.text}</span> : null}
                     </Link>
                   </li>

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Footer from "./footer";
 import Topnav from "./topNav";
 import { AiOutlinePlus } from "react-icons/ai";
+import PageHeader from "./pageHeader";
 
 class Board extends Component {
   state = {
@@ -24,10 +25,7 @@ class Board extends Component {
       <div className="boardContainer">
         <Topnav />
         <div className="boardWrapper">
-          <header>
-            <h2>Board</h2>
-            <button className="boardBtn">Add New Board</button>
-          </header>
+          <PageHeader className="boardBtn" name="Board" buttonName="Add New Board" />
           <div className="boardContent">
             <div className="content">
               <h4>To Do</h4>

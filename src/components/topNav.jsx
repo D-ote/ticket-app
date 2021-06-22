@@ -79,30 +79,33 @@ class Topnav extends Component {
     };
   }
 
-  componentDidMount() {
+  popUpHandler() {
     document.onclick = (e) => {
       let firstNavDropdownToggler =
         this.firstNavDropdownToggler.current.children[0];
       if (
         e.target !== this.firstNavDropdown.current &&
         e.target !== firstNavDropdownToggler
-      )
+      ) {
         this.setState({ updatesIsDropped: false });
+      }
 
       let secondNavdropdownToggler =
         this.secondNavdropdownToggler.current.children[0];
       if (
         e.target !== this.secondNavdropdown.current &&
         e.target !== secondNavdropdownToggler
-      )
+      ) {
         this.setState({ notificationsIsDropped: false });
+      }
 
       let topnavToggler = this.thirdNavdropdownToggler.current.children[0];
       if (
         e.target !== this.thirdNavDropdown.current &&
         e.target !== topnavToggler
-      )
+      ) {
         this.setState({ topnavIsDropped: false });
+      }
     };
   }
 
@@ -122,6 +125,7 @@ class Topnav extends Component {
   };
 
   render() {
+    this.popUpHandler()
     return (
       <div>
         <nav className="topNav">

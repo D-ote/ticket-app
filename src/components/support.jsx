@@ -2,6 +2,7 @@ import "./support.css";
 import React, { Component } from "react";
 import Footer from "./footer";
 import Topnav from "./topNav";
+import PageHeader from "./pageHeader";
 
 class Support extends Component {
   constructor(props) {
@@ -206,18 +207,15 @@ class Support extends Component {
       <div className="supportContainer">
         <Topnav />
         <div className="supportWrapper">
-          <header>
-            <h2>Support</h2>
-            <button className="supportBtn">Add New Ticket</button>
-          </header>
+          <PageHeader className="supportBtn" name="Support" buttonName="Add New Ticket" />
           <div className="supportContent">
             <div className="supportHeader">
               <ul className="headerList">
-                <li className={ this.state.border === "all" ? "active" : "taskBorder" } onClick={() => this.selectAll()}>All</li>
-                <li className={ this.state.border === "new" ? "active" : "taskBorder" } onClick={() => this.selectNew()}>New</li>
-                <li className={ this.state.border === "open" ? "active" : "taskBorder" } onClick={() => this.selectOpen()}>Open</li>
-                <li className={ this.state.border === "issues" ? "active" : "taskBorder" } onClick={() => this.selectIssues()}>Issues</li>
-                <li className={ this.state.border === "closed" ? "active" : "taskBorder" } onClick={() => this.selectClosed()}>Closed</li>
+                <li className={ this.state.border === "all" ? "active fontWeight" : "taskBorder" } onClick={() => this.selectAll()}>All</li>
+                <li className={ this.state.border === "new" ? "active fontWeight" : "taskBorder" } onClick={() => this.selectNew()}>New</li>
+                <li className={ this.state.border === "open" ? "active fontWeight" : "taskBorder" } onClick={() => this.selectOpen()}>Open</li>
+                <li className={ this.state.border === "issues" ? "active fontWeight" : "taskBorder" } onClick={() => this.selectIssues()}>Issues</li>
+                <li className={ this.state.border === "closed" ? "active fontWeight" : "taskBorder" } onClick={() => this.selectClosed()}>Closed</li>
               </ul>
             </div>
             <table className="supportTable">

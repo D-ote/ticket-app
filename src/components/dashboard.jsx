@@ -8,6 +8,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import OrderCard from "./orderCard";
 import Topnav from "./topNav";
 import Footer from "./footer";
+import PageHeader from "./pageHeader";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -159,10 +160,7 @@ class Dashboard extends Component {
         <div className="dashboard" id="dashboard">
           <Topnav />
           <div className="dashboardContent">
-            <header>
-              <h2>Dashboard</h2>
-              <button className="headerBtn">Edit Dashboard</button>
-            </header>
+            <PageHeader name="Dashboard" buttonName="Edit Dashboard" className="headerBtn" />
             <section className="dashboardCards">
               {this.state.cards.map((card) => (
                 <OrderCard
