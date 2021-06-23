@@ -154,6 +154,10 @@ class Dashboard extends Component {
     this.setState({ scheduleDayIsDropped: !state });
   };
 
+  deleteTask = (e) => {
+    console.log("reknk")
+  }
+
   render() {
     return (
       <div className="dashboardContainer">
@@ -227,7 +231,7 @@ class Dashboard extends Component {
                       <input
                         type="checkbox"
                         className="taskInput"
-                        name={"task" + idx}
+                        name={"task" + idx} onclick={() => this.deleteTask()}
                       />
                       <div className="text">
                         <label htmlFor="task1" className="taskLabel">

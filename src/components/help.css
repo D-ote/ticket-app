@@ -1,0 +1,33 @@
+.helpContainer {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    background-color: #245fff;
+    overflow-y: scroll;
+    background-color: rgb(246, 250, 255);
+}
+
+.helpWrapper {
+    padding: 50px;
+}
+
+.helpWrapper header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;        
+}
+
+.helpWrapper header h2 {
+    font-size: 28px;
+    align-self: center;    
+}
+
+.helpWrapper header .helpBtn {
+    background-color: white;
+    padding: 8px 12px;
+    border: 1px solid rgb(238, 232, 232);
+    border-radius: 5px;
+}

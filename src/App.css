@@ -499,7 +499,7 @@
 
 .tasksDiv {
   display: flex;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   margin-bottom: 15px;
 }
 
@@ -508,6 +508,10 @@
   width: 18px ;
   height: 18px ;
   cursor: pointer;
+}
+
+.taskLabel {
+  font-size: 14px;
 }
 
 .taskLabel:hover {

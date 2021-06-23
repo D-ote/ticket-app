@@ -8,6 +8,7 @@ import Calender from "./components/calender";
 import Board from "./components/board";
 import Customer from "./components/customer";
 import Support from "./components/support";
+import Help from "./components/help";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/board" exact component={Board} />
         <Route path="/customer" exact component={Customer} />
         <Route path="/support" exact component={Support} />
+        <Route path="/help" exact component={Help} />
       </div>
     </Router>
   );
