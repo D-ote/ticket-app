@@ -23,7 +23,7 @@ class Sidebar extends Component {
       { id: 1, link: "/", icon: AiOutlineHome, text: "Dashboard" },
       { id: 2, link: "/task", icon: GrNotes, text: "Task" },
       { id: 3, link: "/emails", icon: HiOutlineMailOpen, text: "Email" },
-      { id: 4, link: "/calender", icon: AiOutlineCalendar, text: "Calender" },
+      { id: 4, link: "/calender", icon: AiOutlineCalendar, text: "Calendar" },
       { id: 5, link: "/board", icon: RiDashboardLine, text: "Board" },
       { id: 6, link: "/customer", icon: BsPeople, text: "Customers" },
       { id: 7, link: "/support", icon: GrChatOption, text: "Support" },

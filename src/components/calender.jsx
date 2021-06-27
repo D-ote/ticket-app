@@ -6,7 +6,17 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import PageHeader from "./pageHeader";
 
 class Calender extends Component {
-  calender = [
+  days = [
+    { id: 1, day: "Sun" },
+    { id: 2, day: "Mon" },
+    { id: 3, day: "Tue" },
+    { id: 4, day: "Wed" },
+    { id: 5, day: "Thur" },
+    { id: 6, day: "Fri" },
+    { id: 7, day: "Sat" },
+  ];
+
+  dates = [
     { id: 1, day: "Sun", date: "31", tag: "none", isFeb: false },
     { id: 2, day: "Mon", date: "1", tag: "dull", isFeb: true },
     { id: 3, day: "Tue", date: "2", tag: "none", isFeb: true },
@@ -41,6 +51,7 @@ class Calender extends Component {
     { id: 32, day: "Wed", date: "3", tag: "none", isFeb: false },
     { id: 33, day: "Tue", date: "4", tag: "none", isFeb: false },
     { id: 34, day: "Tue", date: "5", tag: "none", isFeb: false },
+    { id: 35, day: "Wed", date: "6", tag: "none", isFeb: false },
   ];
 
   state = {};
@@ -51,43 +62,38 @@ class Calender extends Component {
         <Topnav />
         <div className="calenderWrapper">
           <div className="calenderContent">
-            <PageHeader name="Calender" className="calenderBtn" buttonName="Add New Event" />
+            <PageHeader
+              name="Calendar"
+              className="calenderBtn"
+              buttonName="Add New Event"
+            />
             <div className="calender">
+              <div className="headerWrapper">
               <div className="calenderHeader">
                 <BsChevronLeft className="calenderIcon" />{" "}
                 <h3>February 2021</h3>{" "}
                 <BsChevronRight className="calenderIcon" />
-              </div>
-              <table className="calenderTable">
-                <thead>
-                  <tr
-                    className="tableHead"
-                    style={{ borderBottom: "1px solid grey" }}
-                  >
-                    <th>Sun</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thur</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.calender.map((cal) => {
-                    return <tr
-                      key={cal.id}
-                      className={
-                        (cal.tag === "bright" && "tableBody bright") ||
-                        (cal.tag === "dull" && "tableBody dull") ||
-                        (cal.tag === "none" && "tableBody none")
-                      }
-                    >
-                       <td> {cal.date} </td>
-                    </tr>;
+              </div></div>
+              <div className="calenderTable">
+                <div className="weekDays">
+                  {this.days.map((pick) => {
+                    return (
+                      <div key={pick.id} className="day">
+                        {pick.day}
+                      </div>
+                    );
                   })}
-                </tbody>
-              </table>
+                </div>
+                <div className="monthDates">
+                  {this.dates.map((pick) => {
+                    return (
+                      <div key={pick.id} className={ pick.isFeb ? "dates" : "dates isFeb" }>
+                        <div className={ pick.tag==="bright" && "number bright" || pick.tag==="dull" && "number dull" || pick.tag==="none" && "number" }>{pick.date}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </div>
