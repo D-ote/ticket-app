@@ -1,5 +1,5 @@
 import "./customer.css"
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 import Footer from "./footer";
 import Topnav from "./topNav";
 import PageHeader from "./pageHeader";
@@ -40,7 +40,7 @@ class Customer extends Component {
     this.setState({ checked: !state },()=>{
 
       Object.values(checkboxStatus).map(box => {
-        box.checked= this.state.checked
+        return box.checked= this.state.checked
         // this.state.checked ? box.setAttribute("checked", true) : box.setAttribute("checked", false);
       })
     });  

@@ -29,30 +29,36 @@ class Dashboard extends Component {
     tasks: [
       {
         id: 1,
+        type: "checkbox",
         title: "Fix CSS styling on mobile",
         description: "Link styles have the wrong colours on mobile, titles…",
         tag: "Urgent",
       },
       {
         id: 2,
+        type: "checkbox",
         title: "Fix javascript filtering issue",
         description: "there is a filtering issue on the customers page",
         tag: "",
       },
       {
         id: 3,
+        type: "checkbox",
         title: "Change home page illustration",
         description: "",
         tag: "",
       },
-      { id: 4, title: "Send monthly invoices", description: "", tag: "Urgent" },
+      { id: 4,
+        type: "checkbox", title: "Send monthly invoices", description: "", tag: "Urgent" },
       {
         id: 5,
+        type: "checkbox",
         title: "Help support with tickets",
         description: "Ask Jamie which ones are most urgent",
         tag: "",
       },
-      { id: 6, title: "Recalculate MRR", description: "", tag: "" },
+      { id: 6,
+        type: "checkbox", title: "Recalculate MRR", description: "", tag: "" },
     ],
     scheduleDayIsDropped: false,
     popUpIsDropped: false,
@@ -154,8 +160,11 @@ class Dashboard extends Component {
     this.setState({ scheduleDayIsDropped: !state });
   };
 
-  deleteTask = (e) => {
-    console.log("reknk")
+  deleteTask = (id) => {
+    console.log("delete")
+    const knockOff = this.state.tasks.filter((pick) => pick.id)
+    console.log(knockOff)
+    this.setState({ tasks: knockOff })
   }
 
   render() {
@@ -229,9 +238,9 @@ class Dashboard extends Component {
                   {this.state.tasks.map((task, idx) => (
                     <div className="tasksDiv" key={task.id}>
                       <input
-                        type="checkbox"
+                        type={task.type}
                         className="taskInput"
-                        name={"task" + idx} onclick={() => this.deleteTask()}
+                        name={"task" + idx} onChange={() => this.deleteTask()}
                       />
                       <div className="text">
                         <label htmlFor="task1" className="taskLabel">
