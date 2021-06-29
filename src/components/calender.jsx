@@ -88,7 +88,7 @@ class Calender extends Component {
                   {this.dates.map((pick) => {
                     return (
                       <div key={pick.id} className={ pick.isFeb ? "dates" : "dates isFeb" }>
-                        <div className={ pick.tag==="bright" && "number bright" || pick.tag==="dull" && "number dull" || pick.tag==="none" && "number" }>{pick.date}</div>
+                        <div className={ ((pick.tag==="bright" && "number bright") || (pick.tag==="dull" && "number dull")) || (pick.tag==="none" && "number") }>{pick.date}</div>
                       </div>
                     );
                   })}
