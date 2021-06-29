@@ -141,7 +141,7 @@ class Topnav extends Component {
           <ul className="rightNavSide">
             <li>
               <button className="navBtn" type="submit">
-                Get Template
+                Get Pro Access
               </button>
             </li>
             <li ref={this.firstNavDropdownToggler}>
