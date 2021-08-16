@@ -27,7 +27,7 @@ class Sidebar extends Component {
       { id: 5, link: "/board", icon: RiDashboardLine, text: "Board" },
       { id: 6, link: "/customer", icon: BsPeople, text: "Customers" },
       { id: 7, link: "/support", icon: GrChatOption, text: "Support" },
-      { id: 8, link: "/guide", icon: FiBox, text: "Style Guide" },
+      { id: 8, link: "", icon: FiBox, text: "Style Guide" },
       { id: 9, link: "/help", icon: AiOutlineQuestionCircle, text: "Help & Feedback" }
     ];
   }
